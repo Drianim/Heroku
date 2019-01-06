@@ -19,7 +19,7 @@ app.use(async (req, res) => {
     // await page.waitFor(1000);
     let lances = await page.evaluate(() => window.lances);//document.head.innerHTML);
 
-    var lancesMartinez = [];
+    var lances = [];
     for (var i=0; i<lances.length; i++) {
         var l = lances[i];
         if (l.tipoLance == "NORMAL") {
@@ -29,11 +29,11 @@ app.use(async (req, res) => {
                titulo: l.titulo,
                 text: l.corpo.blocks[0].text
            };
-           lancesMartinez.push(lance);
+           lances.push(lance);
         }
     }
     browser.close();
-    res.send(lancesMartinez);
+    res.send(lances);
 });
 
 const server = app.listen(process.env.PORT || 8080, err => {
