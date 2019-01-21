@@ -22,7 +22,7 @@ app.use(async (req, res) => {
     var lances_Lances = [];
     for (var i=0; i<lances.length; i++) {
         var l = lances[i];
-        //if (l.tipoLance == "NORMAL") {
+        if (l.tipoLance == "NORMAL" || l.tipoLance == "SUBSTITUICAO" || l.tipoLance == "IMPORTANTE") {
            var lance = {
                tempo: l.momento, 
                periodo: l.periodoLabel,
@@ -30,7 +30,7 @@ app.use(async (req, res) => {
                 text: l.corpo.blocks[0].text
            };
           lances_Lances.push(lance);
-        //}
+        }
     }
     browser.close();
     res.send(lances_Lances);
