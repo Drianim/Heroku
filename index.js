@@ -27,7 +27,7 @@ app.use(async (req, res) => {
                tempo: l.momento, 
                periodo: l.periodoLabel,
                titulo: l.titulo,
-                text: l.corpo.blocks[0].text
+                text: l.corpo
            };
           lances_Lances.push(lance);
         }
